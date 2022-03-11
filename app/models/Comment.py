@@ -11,6 +11,5 @@ class Comment(Base):
     post_id = Column(Integer, ForeignKey('posts.id'))
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+    user = relationship('User')
 
-user = relationship('User')
-comments = relationship('Comment', cascade='all,delete')
