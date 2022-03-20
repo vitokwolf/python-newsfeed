@@ -118,7 +118,6 @@ def upvote():
 def create():
     data = request.get_json()
     db=get_db()
-
     try:
         #create new post
         newPost = Post(
@@ -126,7 +125,6 @@ def create():
             post_url = data['post_url'],
             user_id = session.get('user_id')
         )
-
         db.add(newPost)
         db.commit()
 

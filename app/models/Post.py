@@ -8,7 +8,7 @@ class Post(Base):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
     title = Column(String(100), nullable=False)
-    post_url = Column(String(100),nullable=False)
+    post_url = Column(String(200),nullable=False)
     user_id  = Column(Integer, ForeignKey('users.id'))
     vote_count = column_property(
         select([func.count(Vote.id)]).where(Vote.post_id == id)
